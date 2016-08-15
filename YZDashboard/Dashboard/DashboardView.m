@@ -179,6 +179,9 @@ static const NSInteger MaxNumber = 1000;
     _percent = endNO * 100 / MaxNumber;
     
     NSInteger diffNum = endNO - beginNO;
+    if (diffNum <= 0) {
+        return;
+    }
     if (diffNum < 100) {
         _intervalNum = 5;
     } else if (diffNum < 300) {

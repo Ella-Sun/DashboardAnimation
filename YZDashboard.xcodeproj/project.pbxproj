@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4447A0AB1D61A48000245CD5 /* Dashboard.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4447A0AA1D61A48000245CD5 /* Dashboard.gif */; };
 		445F241E1D5D7C540005F456 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F241D1D5D7C540005F456 /* main.m */; };
 		445F24211D5D7C540005F456 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F24201D5D7C540005F456 /* AppDelegate.m */; };
 		445F24241D5D7C540005F456 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F24231D5D7C540005F456 /* ViewController.m */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4447A0AA1D61A48000245CD5 /* Dashboard.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Dashboard.gif; sourceTree = "<group>"; };
 		445F24191D5D7C540005F456 /* YZDashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YZDashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		445F241D1D5D7C540005F456 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		445F241F1D5D7C540005F456 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		445F244F1D5D7C840005F456 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				4447A0AA1D61A48000245CD5 /* Dashboard.gif */,
 				445F24571D5D9F920005F456 /* backgroundImage@2x.png */,
 				445F24531D5D7E400005F456 /* Category */,
 				445F24501D5D7CB80005F456 /* DashboardView.h */,
@@ -286,6 +289,7 @@
 				445F24291D5D7C540005F456 /* Assets.xcassets in Resources */,
 				445F24581D5D9F920005F456 /* backgroundImage@2x.png in Resources */,
 				445F24271D5D7C540005F456 /* Main.storyboard in Resources */,
+				4447A0AB1D61A48000245CD5 /* Dashboard.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
