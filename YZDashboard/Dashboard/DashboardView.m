@@ -173,8 +173,8 @@ static const NSInteger MaxNumber = 1000;
  */
 - (void)refreshJumpNOFromNO:(NSString *)startNO toNO:(NSString *)toNO {
     
-    beginNO = [startNO integerValue];
-    jumpCurrentNO = [startNO integerValue];
+    beginNO = 0;//[startNO integerValue];
+    jumpCurrentNO = 0;//[startNO integerValue];
     endNO = [toNO integerValue];
     _percent = endNO * 100 / MaxNumber;
     

@@ -124,7 +124,7 @@
     
     CGFloat value = _slider.value;
     
-    NSString *startNO = @"0";
+    NSString *startNO = @"350";
     NSString *toNO = [NSString stringWithFormat:@"%.f",value];//@"693";
     NSLog(@"endNO:%@",toNO);
     [self.dashboardView refreshJumpNOFromNO:startNO toNO:toNO];
