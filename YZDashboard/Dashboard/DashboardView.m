@@ -125,10 +125,10 @@ static const NSInteger MaxNumber = 1000;
     if (_showLable) {
         return;
     }
-    CGFloat xPixel = self.bgImageView.left + self.circelRadius / 4;
-    CGFloat yPixel = self.circelRadius / 4;
-    CGFloat width = self.circelRadius / 2;
+    CGFloat width = self.circelRadius / 2 + 20;
     CGFloat height = self.circelRadius / 2;
+    CGFloat xPixel = self.bgImageView.left + (self.bgImageView.width - width)*0.5;//self.circelRadius / 4;
+    CGFloat yPixel = self.circelRadius / 4;
     CGRect labelFrame = CGRectMake(xPixel, yPixel, width, height);
     _showLable = [[UILabel alloc] initWithFrame:labelFrame];
     _showLable.backgroundColor = [UIColor clearColor];
@@ -180,13 +180,11 @@ static const NSInteger MaxNumber = 1000;
     
     NSInteger diffNum = endNO - beginNO;
     if (diffNum < 100) {
-        _intervalNum = 1;
-    } else if (diffNum < 400) {
         _intervalNum = 5;
-    } else if (diffNum < 700) {
-        _intervalNum = 10;
-    } else if (diffNum < MaxNumber) {
+    } else if (diffNum < 300) {
         _intervalNum = 15;
+    } else if (diffNum <= MaxNumber) {
+        _intervalNum = 10;
     }
     NSLog(@"数字间隔：%ld",_intervalNum);
     
@@ -254,7 +252,7 @@ static const NSInteger MaxNumber = 1000;
 
 #pragma mark 加速定时器触发事件
 - (void)fastTimerAction {
-    if (jumpCurrentNO == endNO) {
+    if (jumpCurrentNO >= endNO) {
         [self.fastTimer invalidate];
         return;
     }
@@ -268,7 +266,7 @@ static const NSInteger MaxNumber = 1000;
 
 #pragma mark 减速定时器触发事件
 - (void)slowTimerAction {
-    if (jumpCurrentNO == endNO) {
+    if (jumpCurrentNO >= endNO) {
         [self.slowTimer invalidate];
         return;
     }
