@@ -74,15 +74,14 @@
     }
     sender.selected = YES;
     
-    NSString *startNO = @"100";
-    NSString *toNO = @"690";
+    NSString *startNO = @"350";
+    NSString *toNO = @"693";
     [self.dashboardView refreshJumpNOFromNO:startNO toNO:toNO];
     
     __block typeof(self)blockSelf = self;
     self.dashboardView.TimerBlock = ^(NSInteger index) {
         [blockSelf.gradientView setUpBackGroundColorWithColorArrayIndex:index];
     };
-//    self.gradientView.percent = 690 / 1000 * 100;
 }
 
 - (void)didReceiveMemoryWarning {

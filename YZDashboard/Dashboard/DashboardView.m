@@ -12,7 +12,7 @@
 
 #define degreesToRadians(x) (M_PI*(x)/180.0) //把角度转换成PI的方式
 static const CGFloat kMarkerRadius = 5.f; // 光标直径
-static const CGFloat kTimerInterval = 0.05;
+static const CGFloat kTimerInterval = 0.03;
 static const CGFloat kFastProportion = 0.9;
 
 static const NSInteger MaxNumber = 1000;
@@ -41,6 +41,8 @@ static const NSInteger MaxNumber = 1000;
 @property (nonatomic, strong) UILabel * showLable;
 @property (nonatomic, strong) NSTimer * fastTimer;
 @property (nonatomic, strong) NSTimer * slowTimer;
+
+@property (nonatomic, assign) NSInteger intervalNum;
 
 @end
 
@@ -176,6 +178,18 @@ static const NSInteger MaxNumber = 1000;
     endNO = [toNO integerValue];
     _percent = endNO * 100 / MaxNumber;
     
+    NSInteger diffNum = endNO - beginNO;
+    if (diffNum < 100) {
+        _intervalNum = 1;
+    } else if (diffNum < 400) {
+        _intervalNum = 5;
+    } else if (diffNum < 700) {
+        _intervalNum = 10;
+    } else if (diffNum < MaxNumber) {
+        _intervalNum = 15;
+    }
+    NSLog(@"数字间隔：%ld",_intervalNum);
+    
     //数字
     [self setupJumpThings];
     
@@ -212,7 +226,22 @@ static const NSInteger MaxNumber = 1000;
     [[NSRunLoop currentRunLoop] addTimer:_fastTimer forMode:NSRunLoopCommonModes];
     
     //时间间隔 = （总时间 - 快时间间隔*变化次数）/ 再次需要变化的次数
-    NSTimeInterval slowInterval = (animationTime - endNO * kFastProportion*kTimerInterval*kFastProportion) / (endNO - jumpCurrentNO);
+    //快时间
+    NSInteger fastEndNO = endNO * kFastProportion;
+    
+    NSInteger fastJump = fastEndNO/_intervalNum;
+    if (fastJump % _intervalNum) {
+        fastJump++;
+        fastEndNO += _intervalNum;
+    }
+    CGFloat fastTTime = fastJump*kTimerInterval*kFastProportion;
+    
+    //剩余应跳动次数
+    NSInteger changNO = endNO - fastEndNO;
+    NSInteger endJump = changNO / _intervalNum + changNO % _intervalNum;
+    //慢时间间隔
+    NSTimeInterval slowInterval = (animationTime - fastTTime) / endJump;
+    
     self.slowTimer = [NSTimer timerWithTimeInterval:slowInterval
                                              target:self
                                            selector:@selector(slowTimerAction)
@@ -229,7 +258,7 @@ static const NSInteger MaxNumber = 1000;
         [self.fastTimer invalidate];
         return;
     }
-    if (jumpCurrentNO == endNO * kFastProportion) {
+    if (jumpCurrentNO >= endNO * kFastProportion) {
         [self.fastTimer invalidate];
         [self.slowTimer setFireDate:[NSDate distantPast]];
         return;
@@ -255,15 +284,15 @@ static const NSInteger MaxNumber = 1000;
             if (self.TimerBlock) {
                 self.TimerBlock(colorIndex);
             }
-//            [self setUpBackGroundColorWithColorArrayIndex:colorIndex];
         });
     }
     NSInteger changeValueBy = endNO - jumpCurrentNO;
-    if (changeValueBy/10 <= 1) {
+    
+    if (changeValueBy/10 < 1) {
         jumpCurrentNO++;
     } else {
-//        NSInteger changeBy = changeValueBy / 10;
-        jumpCurrentNO += 10;
+        //        NSInteger changeBy = changeValueBy / 10;
+        jumpCurrentNO += _intervalNum;
     }
 
     _showLable.text = [NSString stringWithFormat:@"%ld",jumpCurrentNO];
