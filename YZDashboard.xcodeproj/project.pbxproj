@@ -15,6 +15,11 @@
 		445F242C1D5D7C540005F456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 445F242A1D5D7C540005F456 /* LaunchScreen.storyboard */; };
 		445F24371D5D7C540005F456 /* YZDashboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F24361D5D7C540005F456 /* YZDashboardTests.m */; };
 		445F24421D5D7C540005F456 /* YZDashboardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F24411D5D7C540005F456 /* YZDashboardUITests.m */; };
+		445F24521D5D7CB80005F456 /* DashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F24511D5D7CB80005F456 /* DashboardView.m */; };
+		445F24561D5D7E400005F456 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F24551D5D7E400005F456 /* UIView+Extensions.m */; };
+		445F24581D5D9F920005F456 /* backgroundImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 445F24571D5D9F920005F456 /* backgroundImage@2x.png */; };
+		445F245B1D5DBC9E0005F456 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F245A1D5DBC9E0005F456 /* GradientView.m */; };
+		445F245E1D5DBF6D0005F456 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 445F245D1D5DBF6D0005F456 /* UIColor+Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,15 @@
 		445F243D1D5D7C540005F456 /* YZDashboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YZDashboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		445F24411D5D7C540005F456 /* YZDashboardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YZDashboardUITests.m; sourceTree = "<group>"; };
 		445F24431D5D7C540005F456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		445F24501D5D7CB80005F456 /* DashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardView.h; sourceTree = "<group>"; };
+		445F24511D5D7CB80005F456 /* DashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardView.m; sourceTree = "<group>"; };
+		445F24541D5D7E400005F456 /* UIView+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extensions.h"; sourceTree = "<group>"; };
+		445F24551D5D7E400005F456 /* UIView+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extensions.m"; sourceTree = "<group>"; };
+		445F24571D5D9F920005F456 /* backgroundImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundImage@2x.png"; sourceTree = "<group>"; };
+		445F24591D5DBC9E0005F456 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		445F245A1D5DBC9E0005F456 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		445F245C1D5DBF6D0005F456 /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		445F245D1D5DBF6D0005F456 /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +115,7 @@
 		445F241B1D5D7C540005F456 /* YZDashboard */ = {
 			isa = PBXGroup;
 			children = (
+				445F244F1D5D7C840005F456 /* Dashboard */,
 				445F241F1D5D7C540005F456 /* AppDelegate.h */,
 				445F24201D5D7C540005F456 /* AppDelegate.m */,
 				445F24221D5D7C540005F456 /* ViewController.h */,
@@ -138,6 +153,30 @@
 				445F24431D5D7C540005F456 /* Info.plist */,
 			);
 			path = YZDashboardUITests;
+			sourceTree = "<group>";
+		};
+		445F244F1D5D7C840005F456 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				445F24571D5D9F920005F456 /* backgroundImage@2x.png */,
+				445F24531D5D7E400005F456 /* Category */,
+				445F24501D5D7CB80005F456 /* DashboardView.h */,
+				445F24511D5D7CB80005F456 /* DashboardView.m */,
+				445F24591D5DBC9E0005F456 /* GradientView.h */,
+				445F245A1D5DBC9E0005F456 /* GradientView.m */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		445F24531D5D7E400005F456 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				445F245C1D5DBF6D0005F456 /* UIColor+Extensions.h */,
+				445F245D1D5DBF6D0005F456 /* UIColor+Extensions.m */,
+				445F24541D5D7E400005F456 /* UIView+Extensions.h */,
+				445F24551D5D7E400005F456 /* UIView+Extensions.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +284,7 @@
 			files = (
 				445F242C1D5D7C540005F456 /* LaunchScreen.storyboard in Resources */,
 				445F24291D5D7C540005F456 /* Assets.xcassets in Resources */,
+				445F24581D5D9F920005F456 /* backgroundImage@2x.png in Resources */,
 				445F24271D5D7C540005F456 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +311,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				445F24241D5D7C540005F456 /* ViewController.m in Sources */,
+				445F24521D5D7CB80005F456 /* DashboardView.m in Sources */,
+				445F245E1D5DBF6D0005F456 /* UIColor+Extensions.m in Sources */,
+				445F24561D5D7E400005F456 /* UIView+Extensions.m in Sources */,
 				445F24211D5D7C540005F456 /* AppDelegate.m in Sources */,
+				445F245B1D5DBC9E0005F456 /* GradientView.m in Sources */,
 				445F241E1D5D7C540005F456 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +540,7 @@
 				445F24481D5D7C540005F456 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		445F24491D5D7C540005F456 /* Build configuration list for PBXNativeTarget "YZDashboardTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +549,7 @@
 				445F244B1D5D7C540005F456 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		445F244C1D5D7C540005F456 /* Build configuration list for PBXNativeTarget "YZDashboardUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +558,7 @@
 				445F244E1D5D7C540005F456 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
